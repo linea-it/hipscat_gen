@@ -1,1 +1,1 @@
-# hipscat_gen
+# Import hipscat
