@@ -1,1 +1,1 @@
-# Import hipscat
+# Import hipscat on Slurm
