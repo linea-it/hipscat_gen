@@ -6,8 +6,8 @@ The idea of this repository is to store scripts to run lsdb/import-hipscat with 
 1. Clone the repository and access the directory:
 
 ```bash
-git clone https://github.com/linea-it/import_hipscat.git  
-cd import_hipscat
+git clone https://github.com/linea-it/slurm_lsdb.git  
+cd slurm_lsdb
 ```
 
 2. Create environment (using Conda):
