@@ -1,0 +1,17 @@
+# Hipscat config to DP0
+#  The idea of yaml is to provide configuration parameters for hipscat.
+# Each key must be a valid argument to the ImportArguments class.
+# https://hipscat-import.readthedocs.io/en/latest/autoapi/hipscat_import/catalog/arguments/index.html#hipscat_import.catalog.arguments.ImportArguments
+
+sort_columns: id_spec
+ra_column: ra
+dec_column: dec
+input_path: /lustre/t1/tmp/singulani/import_hipscat/inputs/SPECZ_DR2/
+input_format: parquet
+output_artifact_name: SpeczDR2
+output_path: /lustre/t1/tmp/singulani/import_hipscat/outputs
+dask_tmp: /lustre/t1/tmp/singulani/import_hipscat/tmp
+dask_n_workers: 1
+dask_threads_per_worker: 56
+overwrite: true
+resume: true

@@ -2,16 +2,13 @@
 
 #SBATCH --time=04:00:00
 #SBATCH -p cpu
-#SBATCH -J hipscat.SOLO
+#SBATCH -J DASK.hipscat
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=56
 #SBATCH --propagate
-#SBATCH --exclusive
 
 echo 'Executing hipsimport...'
 cat $1
-time python hipsimport.py $1
+time python hipsimport-dask-cluster.py $1
 echo 'Done!'
 
 exit

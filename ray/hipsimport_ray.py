@@ -1,16 +1,11 @@
 import hipscat_import.pipeline as runner
 from hipscat_import.pipeline import pipeline_with_client
 from dask.distributed import LocalCluster, Client
+from dask_jobqueue import SLURMCluster
 import yaml
 from sys import argv
 import dask.config
 import dask.distributed
-
-dask.config.set({"array.chunk-size": "128 MiB"})
-dask.config.set({"distributed.workers.memory.spill": 0.90})
-dask.config.set({"distributed.workers.memory.target": 0.80})
-dask.config.set({"distributed.workers.memory.terminate": 0.98})
-dask.config.set({"distributed.nanny.environ.MALLOC_TRIM_THRESHOLD_": 0})
 
 
 def get_config():
@@ -28,15 +23,21 @@ def get_config():
 def main():
     params = get_config()
 
-    args = runner.ImportArguments(**params)
-    memlim = "%iGB" % round(125 / int(args.dask_n_workers))
+    dask.config.set({"array.chunk-size": "128 MiB"})
+    dask.config.set({"distributed.workers.memory.spill": 0.90})
+    dask.config.set({"distributed.workers.memory.target": 0.80})
+    dask.config.set({"distributed.workers.memory.terminate": 0.98})
 
-    cluster = LocalCluster(
-        n_workers=args.dask_n_workers,
-        local_directory=args.dask_tmp,
-        threads_per_worker=args.dask_threads_per_worker,
-        memory_limit=memlim
-    )
+    args = runner.ImportArguments(**params)
+
+    memlim = "%iGB" % round(120 / int(args.dask_n_workers))
+
+    cluster = SLURMCluster(cores=args.dask_n_workers,
+                       processes=1,
+                       memory=memlim,
+                       walltime="04:00:00",
+                       queue="cpu")
+
     with Client(cluster) as client:
         pipeline_with_client(args, client)
 

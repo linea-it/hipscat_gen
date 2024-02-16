@@ -1,0 +1,17 @@
+# Hipscat config to DR2
+#  The idea of yaml is to provide configuration parameters for hipscat.
+# Each key must be a valid argument to the ImportArguments class.
+# https://hipscat-import.readthedocs.io/en/latest/autoapi/hipscat_import/catalog/arguments/index.html#hipscat_import.catalog.arguments.ImportArguments
+
+sort_columns: COADD_OBJECTS_ID
+ra_column: RA
+dec_column: DEC
+input_path: /lustre/t1/tmp/singulani/import_hipscat/inputs/DR2_PREPROC/
+input_format: parquet
+output_artifact_name: DR2_PREPROC
+output_path: /lustre/t1/tmp/singulani/import_hipscat/outputs
+dask_tmp: /lustre/t1/tmp/singulani/import_hipscat/tmp
+dask_n_workers: 50
+# dask_threads_per_worker: 5
+overwrite: true
+resume: true

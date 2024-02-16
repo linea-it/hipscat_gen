@@ -25,21 +25,18 @@ def main():
     params = get_config()
     args = ImportArguments(**params)
 
-    node_ip = os.getenv('RAY_NODE_IP', None)
+    node_ip = os.getenv('ip_head', None)
+    redis_password = os.getenv('redis_password', None)
+
+    print("HEAD IP: ", node_ip)
 
     if not node_ip:
-        raise ValueError("node IP not specified in $RAY_NODE_IP environment variable")
+        raise ValueError("node IP not specified in $ip_head environment variable")
 
-    with ray.init(
-        _node_ip_address=node_ip,
-        #num_cpus=args.dask_n_workers,
-    ):
+    with ray.init(address=node_ip):
         enable_dask_on_ray()
 
-        with Client(
-            n_workers=args.dask_n_workers,
-            local_directory=args.dask_tmp,
-        ) as client:
+        with Client(node_ip) as client:
             pipeline_with_client(args, client)
 
         disable_dask_on_ray()
