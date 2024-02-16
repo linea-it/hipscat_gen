@@ -1,5 +1,5 @@
-# Import hipscat on Slurm
-The idea of this repository is to store scripts to run import-hipscat with Slurm in the LIneA environment.
+# lsdb on Slurm
+The idea of this repository is to store scripts to run lsdb/import-hipscat with Slurm in the LIneA environment.
 
 ## Setup Environment
 
