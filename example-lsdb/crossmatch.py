@@ -43,7 +43,7 @@ def main():
         data2 = lsdb.read_hipscat(datapath2)
         cross = data1.crossmatch(data2)
         data = cross.compute()
-        print(f"Count: {data.count()}")
+        print(f"Count:\n{data.count()}")
         data.to_parquet("cross.parquet")
 
     cluster.close()
