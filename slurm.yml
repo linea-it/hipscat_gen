@@ -1,0 +1,7 @@
+cores: 54
+processes: 1
+memory: "250GiB"
+queue: "cpu"
+job_extra_directives:
+  - "--propagate"
+  - "--time=2:00:00"

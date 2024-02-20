@@ -1,0 +1,15 @@
+name: lsdb
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pip=23.3.1
+  - python=3.10.13
+  - pip:
+      - dask==2024.1.0
+      - dask-jobqueue==0.8.2
+      - distributed==2024.1.0
+      - hipscat==0.2.1
+      - hipscat-import==0.2.1
+      - lsdb==0.1.0
+      - ray==2.9.1
