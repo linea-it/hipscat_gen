@@ -1,4 +1,3 @@
-
 The idea of this repository is to store scripts to import datasets into hipscat format and perform cross matching using LSDB with Slurm in the LIneA environment.
 
 
