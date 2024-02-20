@@ -38,7 +38,7 @@ The command above will import the datasets into the `data-sample/hipscat` direct
 *Obs: This cross match code is just an example of how to do it*
 
 ```bash
-cd lsdb
+cd example-lsdb
 python crossmatch.py ../data-sample/hipscat/DatasetA ../data-sample/hipscat/DatasetB
 cd ..
 ```

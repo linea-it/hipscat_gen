@@ -132,5 +132,6 @@ dmypy.json
 import/dask-scratch-space
 
 # hipscat datasets (examples)
-data-sample/hipscat
-lsdb/cross.parquet
+data-sample/hipscat/DatasetA
+data-sample/hipscat/DatasetB
+example-lsdb/cross.parquet
