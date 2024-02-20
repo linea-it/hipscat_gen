@@ -9,5 +9,5 @@
 export EXECUTOR=slurm
 
 printf 'Executing crossmatch...\n\n'
-time python crossmatch.py
+time python crossmatch.py $@
 printf '\nDone!\n'

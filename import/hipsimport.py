@@ -36,13 +36,12 @@ def main(cname):
         case "slurm":
             pslurm = get_config("../slurm.yml")
             cluster = SLURMCluster(**pslurm)
-            cluster.adapt(maximum_jobs=args.dask_n_workers)
+            cluster.scale(args.dask_n_workers)
         case _:
             cluster = LocalCluster(
                 n_workers=1,
                 threads_per_worker=1,
             )
-            cluster.scale(2)
 
     with Client(cluster) as client:
         pipeline_with_client(args, client)

@@ -30,15 +30,14 @@ def main():
     match executor:
         case "slurm":
             cluster = SLURMCluster(**pslurm)
-            cluster.adapt(maximum_jobs=5)
         case _:
             cluster = LocalCluster(
                 n_workers=1,
                 threads_per_worker=1,
             )
-            cluster.scale(2)
 
     with Client(cluster) as _:
+        cluster.scale(2)
         data1 = lsdb.read_hipscat(datapath1)
         data2 = lsdb.read_hipscat(datapath2)
         cross = data1.crossmatch(data2)
