@@ -1,0 +1,15 @@
+# The idea of yaml is to provide configuration parameters for hipscat.
+# Each key must be a valid argument to the ImportArguments class.
+# https://hipscat-import.readthedocs.io/en/latest/autoapi/hipscat_import/catalog/arguments/index.html#hipscat_import.catalog.arguments.ImportArguments
+
+sort_columns: z
+ra_column: ra
+dec_column: dec
+input_path: ../data-sample/raw/B
+input_format: parquet
+output_artifact_name: DatasetB
+output_path: ../data-sample/hipscat/
+dask_n_workers: 4
+dask_threads_per_worker: 1
+overwrite: true
+resume: true
