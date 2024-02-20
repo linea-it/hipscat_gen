@@ -34,6 +34,7 @@ The command above will import the datasets into the `data-sample/hipscat` direct
 
 
 4. Run cross match:
+   
 *Obs: This cross match code is just an example of how to do it*
 
 ```bash
